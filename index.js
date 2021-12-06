@@ -9,10 +9,7 @@ const fs = require("fs");
 app.use(cors());
 
 //set static folder to public with path
-app.use(express.static(path.join("node", "app")));
-
-//set static folder to heroku mounted disk with path "public"
-app.use(express.static(path.join("public")));
+app.use(express.static("/node/app"));
 
 //set a index route
 app.get("/", (req, res) => {
