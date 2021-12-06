@@ -14,14 +14,14 @@ app.use(cors());
 //set a index route
 app.get("/", (req, res) => {
     //check fs stat on index.html
-    fs.stat(path.join(__dirname, "node", "app", "index.html"), (err, stats) => {
+    fs.stat(path.join("node", "app", "index.html"), (err, stats) => {
         if (err) {
             console.log(err);
             return res.send({ Error: err });
         }
         //if stat is ok, send index.html
 
-        return res.sendFile(path.join(__dirname, "node", "app", "index.html"));
+        return res.sendFile(path.join("node", "app", "index.html"));
         // res.send("hello");
     });
 });
