@@ -12,8 +12,8 @@ app.use(cors());
 
 //set a index route
 app.get("/", (req, res) => {
-    // res.sendFile(path.join(__dirname, "node", "app", "river.jpg"));
-    res.send("hello");
+    res.sendFile(path.join(__dirname, "node", "app", "index.html"));
+    // res.send("hello");
 });
 
 //set a port
