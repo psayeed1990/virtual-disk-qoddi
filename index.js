@@ -9,21 +9,15 @@ const fs = require("fs");
 app.use(cors());
 
 //set static folder to public with path
-app.use(express.static("/node/app"));
+app.use(express.static(path.join("node", "app")));
+
+//set static folder to heroku mounted disk with path "public"
+app.use(express.static(path.join("public")));
 
 //set a index route
 app.get("/", (req, res) => {
-    //check fs stat on index.html
-    fs.stat("/node/app/index.html", (err, stats) => {
-        if (err) {
-            console.log(err);
-            return res.send({ Error: err });
-        }
-        //if stat is ok, send index.html
-
-        return res.sendFile("/node/app/index.html");
-        // res.send("hello");
-    });
+    return res.sendFile(path.join(__dirname, "static", "index.html"));
+    // res.send("hello");
 });
 
 //set a port
