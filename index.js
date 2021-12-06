@@ -9,7 +9,7 @@ const fs = require("fs");
 app.use(cors());
 
 //set static folder to public with path
-// app.use("/uploads", express.static(path.join(__dirname, "node", "app")));
+app.use(express.static("/node/app"));
 
 //set a index route
 app.get("/", (req, res) => {
