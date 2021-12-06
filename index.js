@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
         }
         //if stat is ok, send index.html
 
-        return res.sendFile(path.join("/node/app/index.html"));
+        return res.sendFile("/node/app/index.html");
         // res.send("hello");
     });
 });
