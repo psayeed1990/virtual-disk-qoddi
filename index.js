@@ -8,11 +8,12 @@ const path = require("path");
 app.use(cors());
 
 //set static folder to public with path
-app.use("/uploads", express.static(path.join(__dirname, "node", "app")));
+// app.use("/uploads", express.static(path.join(__dirname, "node", "app")));
 
 //set a index route
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "node", "app", "river.jpg"));
+    // res.sendFile(path.join(__dirname, "node", "app", "river.jpg"));
+    res.send("hello");
 });
 
 //set a port
