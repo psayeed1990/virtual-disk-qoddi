@@ -12,7 +12,7 @@ app.use("/uploads", express.static(path.join(__dirname, "node", "app")));
 
 //set a index route
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "node", "app", "bg.jpg"));
+    res.sendFile(path.join(__dirname, "node", "app", "river.jpg"));
 });
 
 //set a port
