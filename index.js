@@ -54,12 +54,10 @@ app.post("/upload", upload, (req, res) => {
 app.get("/create-file", (req, res) => {
     // "/node/app/" is a mounted folder. Mount it to the root directory of this project
 
-    fs.mount("node/app/", "workspace/node/app/");
-
     //create a file with with error check
-    var stream = fs.createWriteStream(
-        "/node/app/new-file.txt",
-        { mode: 0o755 },
+    fs.writeFile(
+        path.join("node", "app", "new-file.txt"),
+        "This is a new file created by node.js",
         (err) => {
             if (err) {
                 console.log(err);
@@ -68,18 +66,18 @@ app.get("/create-file", (req, res) => {
             }
         }
     );
-    stream.write("#!/usr/bin/node\n");
-    stream.write("console.log('hello world');");
-    stream.end();
 
     //access the file content with error checking
-    const file = fs.readFileSync("/node/app/new-file.txt", (err) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("created file read");
+    const file = fs.readFileSync(
+        path.join("node", "app", "new-file.txt"),
+        (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("created file read");
+            }
         }
-    });
+    );
 
     //send the file content in a h1 tag
     res.send(`<h1>${file}</h1>`);
