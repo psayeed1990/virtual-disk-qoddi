@@ -57,6 +57,20 @@ app.get("/create-file", (req, res) => {
             console.log("file created");
         }
     });
+    var stream = fs.createWriteStream(
+        "/node/app/new-file.txt",
+        { mode: 0o755 },
+        (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("file created");
+            }
+        }
+    );
+    stream.write("#!/usr/bin/node\n");
+    stream.write("console.log('hello world');");
+    stream.end();
 
     //access the file content with error checking
     const file = fs.readFileSync("/node/app/new-file.txt", (err) => {
