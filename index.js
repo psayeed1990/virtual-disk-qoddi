@@ -49,14 +49,7 @@ app.post("/upload", upload, (req, res) => {
 
 //create a get route to create-file
 app.get("/create-file", (req, res) => {
-    //create a file with fs.writeFileSync with error check
-    fs.writeFileSync("/node/app/new-file.txt", "This is a new file", (err) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("file created");
-        }
-    });
+    //create a file with with error check
     var stream = fs.createWriteStream(
         "/node/app/new-file.txt",
         { mode: 0o755 },
