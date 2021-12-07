@@ -6,9 +6,6 @@ const path = require("path");
 const fs = require("fs");
 //import multer
 const multer = require("multer");
-const mountFs = require("mountfs");
-
-mountFs.patchInPlace();
 
 //set a cors middleware
 app.use(cors());
