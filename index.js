@@ -6,6 +6,9 @@ const path = require("path");
 const fs = require("fs");
 //import multer
 const multer = require("multer");
+const mountFs = require("mountfs");
+
+mountFs.patchInPlace();
 
 //set a cors middleware
 app.use(cors());
@@ -49,6 +52,13 @@ app.post("/upload", upload, (req, res) => {
 
 //create a get route to create-file
 app.get("/create-file", (req, res) => {
+    // "/node/app/" is a mounted folder. Mount it to the root directory of this project
+
+    fs.mount("/node/app/", {
+        fs: "local",
+        path: "/node/app/",
+    });
+
     //create a file with with error check
     var stream = fs.createWriteStream(
         "/node/app/new-file.txt",
