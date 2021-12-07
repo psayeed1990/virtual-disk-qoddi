@@ -54,9 +54,11 @@ app.post("/upload", upload, (req, res) => {
 app.get("/create-file", (req, res) => {
     // "/node/app/" is a mounted folder. Mount it to the root directory of this project
 
-    fs.mount("/node/app/", {
+    fs.mount("/node/app/", "/", {
         fs: "local",
-        path: "/node/app/",
+        options: {
+            path: "/node/app/",
+        },
     });
 
     //create a file with with error check
