@@ -25,6 +25,13 @@
                 </a>
             </p>
             <h1>Our Test Image from Qoddi</h1>
+            <!--create a form to upload image-->
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <!--write a file input-->
+                <input type="file" name="file" />
+                <!--write a submit button-->
+                <input type="submit" value="Upload" />
+            </form>
             <img
                 src="/bg.jpg"
                 alt="Flooded River Side on a sunny day"
