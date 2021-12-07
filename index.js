@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 //multer storage to "/node/app/" folder with filename with date
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "./node/app/");
+        cb(null, "/node/app/");
     },
     filename: (req, file, cb) => {
         cb(null, new Date().toISOString() + file.originalname);
@@ -45,6 +45,30 @@ app.post("/upload", upload, (req, res) => {
     res.set("Content-Type", req.file.mimetype);
     //send the file
     res.send(file);
+});
+
+//create a get route to create-file
+app.get("/create-file", (req, res) => {
+    //create a file with fs.writeFileSync with error check
+    fs.writeFileSync("/node/app/new-file.txt", "This is a new file", (err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("file created");
+        }
+    });
+
+    //access the file content with error checking
+    const file = fs.readFileSync("/node/app/new-file.txt", (err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("created file read");
+        }
+    });
+
+    //send the file content in a h1 tag
+    res.send(`<h1>${file}</h1>`);
 });
 
 //set a port
