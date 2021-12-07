@@ -5,10 +5,65 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
+        <style>
+            body {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 14px;
+                line-height: 1.42857143;
+                color: #333;
+                background-color: #fff;
+            }
+            .container {
+                margin-right: auto;
+                margin-left: auto;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            form {
+                margin-bottom: 40px;
+            }
+            /* set input type file fields to beautiful design */
+            input[type="file"] {
+                display: block;
+                margin-top: 10px;
+            }
+            /* set submit button to beautiful design */
+            input[type="submit"] {
+                margin: 10px auto;
+                padding: 10px;
+                background-color: #337ab7;
+                border-color: #2e6da4;
+                color: #fff;
+                border-radius: 4px;
+                width: 200px;
+            }
+            input {
+                display: block;
+                margin: 20px auto;
+                padding: 4px;
+                width: 300px;
+                box-sizing: border-box;
+                font-size: 14px;
+                line-height: 1.42857143;
+                color: #555;
+                background-color: #fff;
+                background-image: none;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                -webkit-transition: border-color ease-in-out 0.15s,
+                    -webkit-box-shadow ease-in-out 0.15s;
+                -o-transition: border-color ease-in-out 0.15s,
+                    box-shadow ease-in-out 0.15s;
+                transition: border-color ease-in-out 0.15s,
+                    box-shadow ease-in-out 0.15s;
+            }
+        </style>
     </head>
     <body>
         <!-- write a div and center it -->
-        <div style="text-align: center">
+        <div class="container" style="text-align: center">
             <!--write a paragraph, give it a width of 200, position it to the center-->
             <p
                 style="
@@ -31,6 +86,7 @@
                 <input type="file" name="file" />
                 <!--write a submit button-->
                 <input type="submit" value="Upload" />
+                <br />
             </form>
             <img
                 src="/bg.jpg"
