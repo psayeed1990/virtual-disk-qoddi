@@ -53,7 +53,7 @@ app.get("/create-file", (req, res) => {
 
     //create a file with with error check
     fs.writeFileSync(
-        path.join("/node/app", "new-file.txt"),
+        "/node/app/new-file.txt",
         "This is a new file created by node.js",
         (err) => {
             if (err) {
