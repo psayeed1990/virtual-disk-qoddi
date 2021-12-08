@@ -52,7 +52,7 @@ app.get("/create-file", (req, res) => {
     // "/node/app/" is a mounted folder. Mount it to the root directory of this project
 
     //create a file with with error check
-    fs.writeFile(
+    fs.writeFileSync(
         path.join("node", "app", "new-file.txt"),
         "This is a new file created by node.js",
         (err) => {
